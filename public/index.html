@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jesser Chat</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside id="sidebar">
+      <div class="s-header">
+        <div class="s-title">Chats</div>
+        <button id="newChat" class="s-new">+ New</button>
+      </div>
+      <ul id="threads"></ul>
+    </aside>
+
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">Gemini Chat</div>
+        <div class="controls">
+          <label>
+            Persona
+            <select id="persona">
+              <option value="general">General</option>
+              <option value="swe" selected>Software Engineer</option>
+              <option value="frontend">Frontend (Angular/React)</option>
+              <option value="devops">DevOps/SRE</option>
+              <option value="data">Data/ML</option>
+            </select>
+          </label>
+          <label>
+            Model
+            <select id="model">
+              <option value="gemini-2.5-flash" selected>gemini-2.5-flash (fast)</option>
+              <option value="gemini-2.5-pro">gemini-2.5-pro (smarter)</option>
+              <option value="gemini-2.0-flash">gemini-2.0-flash</option>
+            </select>
+          </label>
+          <label title="0 disables &quot;thinking&quot; to maximize speed">
+            Thinking
+            <input id="thinking" type="number" min="0" max="200" step="5" value="0" />
+          </label>
+          <button id="clear">Clear</button>
+        </div>
+      </header>
+
+      <main id="chat"></main>
+
+      <form id="composer" novalidate>
+        <textarea id="input" rows="1" placeholder="Message… (Shift+Enter for newline)"></textarea>
+        <button id="send" type="button">Send</button>
+      </form>
+    </div>
+  </div>
+
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>Prism.plugins.autoloader.languages_path = 'https://cdn.jsdelivr.net/npm/prismjs@1/components/';</script>
+  <script src="/app.js" type="module"></script>
+</body>
+
+</html>
